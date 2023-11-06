@@ -5,7 +5,7 @@ public class Person {
     int age;
     double height; 
 
-    public void Person(String name, int age, double height){
+    public Person(String name, int age, double height){
         this.name = name;
         this.age = age;
         this.height = height;
