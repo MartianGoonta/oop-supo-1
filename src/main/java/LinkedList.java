@@ -86,6 +86,29 @@ public class LinkedList {
         System.out.println("null");
     }
 
+    public boolean detectCycle()
+    {
+        //create new list
+        if (head == null || head.next == null)
+        {
+            return false;
+        }
+
+        Node slowPointer = head;
+        Node fastPointer = head;
+        while (fastPointer != null && fastPointer.next == null)
+        {
+            fastPointer = fastPointer.next.next;
+            slowPointer = slowPointer.next;
+
+            if (fastPointer == slowPointer)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args)
     {
         LinkedList myList = new LinkedList();
@@ -104,5 +127,6 @@ public class LinkedList {
         System.out.println(myList.findHead());
         System.out.println(myList.findLength());
         System.out.println(myList.findN(6));
+        System.out.println(myList.detectCycle());
     }
 }
